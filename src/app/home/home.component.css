@@ -5,7 +5,31 @@ section{
     width: 55vw;
 }
 
+div{
+    padding: 1em;
+}
+
 h2{
-    padding: 2em 1em;
+    padding: 1em 0;
     font-weight: 400;
+}
+
+mat-form-field + mat-form-field {
+    margin-left: .5em;
+}
+
+button{
+    display: inline-flex;
+    height: 40px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    color: white;
+    border-style: none;
+    padding: 0 3em;
+    margin: 0 2em;
+    border-radius: 100px;
+    background: var(--primary-color);
 }

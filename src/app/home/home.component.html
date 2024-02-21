@@ -1,8 +1,25 @@
 <section>
-    <h1>Mijn Todo app</h1>
+    <h1>My Todo app</h1>
     <div>
-        <h2>Voeg je eerste item toe:</h2>
+        <h2>Add your first task:</h2>
 
-        <mat-slide-toggle>Toggle me!</mat-slide-toggle>
+        <form>
+            <mat-form-field [color]="colorControl.value!">
+                <mat-label>Status</mat-label>
+                <mat-select [formControl]="colorControl">
+                    <mat-option value="primary">Finished</mat-option>
+                    <mat-option value="accent">In progress</mat-option>
+                    <mat-option value="warn">Not done</mat-option>
+                </mat-select>
+            </mat-form-field>
+    
+            <mat-form-field>
+                <mat-label>Title</mat-label>
+                <input matInput #input maxlength="10" placeholder="Ex. Nougat">
+            </mat-form-field>
+
+            <button> Add your task</button>
+        </form>
+        
     </div>
 </section>

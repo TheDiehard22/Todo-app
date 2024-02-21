@@ -1,13 +1,18 @@
 import { Component } from '@angular/core';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {ThemePalette} from '@angular/material/core';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [MatSlideToggleModule],
+  imports: [MatFormFieldModule, MatInputModule, MatSelectModule, FormsModule, ReactiveFormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
-
+  colorControl = new FormControl('primary' as ThemePalette);
 }
+
