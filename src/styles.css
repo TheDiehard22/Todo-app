@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+    --primary-color: #6750A4;
+    --secondary-color: #ECE6F0;
+    --accent-color: #F7F2FA;
+    --shadow-color: #CAC4D0;
+    
+    --title-color: #1D1B20;
+    --subTitle-color: #49454F;
+}
+
+* 
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--secondary-color);
+}
+
+app-root{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    font-size: 36px;
+    font-weight: 400;
+    padding: .5em;
+    border-bottom: solid 2px var(--primary-color) ;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
