@@ -19,3 +19,6 @@ article div{
     padding: 0 2em
 }
 
+.todo-item{
+    border: 1px solid black;
+}
