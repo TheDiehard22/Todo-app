@@ -15,7 +15,7 @@ import { DataService } from '../data.service';
       <h2>Add your first task:</h2>
       <form [formGroup]="formGroup" (ngSubmit)="onSubmit($event)">
         <mat-form-field class="text-field">
-          <input matInput #input maxlength="20" placeholder="Title task" [(ngModel)]="formData.title"[ngModelOptions]="{standalone: true}">
+          <input matInput #input maxlength="20" placeholder="Title task" [formControl]="titleControl">
           <mat-label>Title</mat-label>
         </mat-form-field>
 
@@ -26,7 +26,7 @@ import { DataService } from '../data.service';
 
         <mat-form-field [color]="colorControl.value!">
           <mat-label>Status</mat-label>
-          <mat-select [formControl]="colorControl" [(ngModel)]="formData.status">
+          <mat-select [formControl]="colorControl">
             <mat-option value="Pending">Pending</mat-option>
             <mat-option value="In Progress">In Progress</mat-option>
             <mat-option value="Completed">Completed</mat-option>
