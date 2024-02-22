@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
+
 import { DataService } from '../data.service';
 
 @Component({
@@ -12,14 +13,12 @@ import { DataService } from '../data.service';
       <div>
         <ul>
           <mat-list>
+            @for (item of dataService.items2(); track item.id){
             <mat-list-item>
-              @for (item of dataService.items2(); track item.id){
-                <ng-container matListItemTitle>
-                  <span matListItemTitle>{{ item.title }}</span>
-                  <span matListItemLine>{{ item.status }}</span>
-                </ng-container>
-              }
-            </mat-list-item>
+                <span matListItemTitle>{{ item.title }}</span>
+                <span matListItemLine>{{ item.status }}</span>
+              </mat-list-item>
+            }
           </mat-list>
         </ul>
       </div>
@@ -30,13 +29,9 @@ import { DataService } from '../data.service';
   styleUrl: './todo-list.component.css'
 })
 export class TodoListComponent implements OnInit {
-  items: any[] = [];
-
   constructor(public dataService: DataService) {}
 
   ngOnInit() {
-    this.dataService.itemAdded.subscribe(item => {
-      this.items.push(item);
-    });
+
   }
 }

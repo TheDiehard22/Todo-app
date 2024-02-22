@@ -1,42 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-    --primary-color: #6750A4;
-    --secondary-color: #ECE6F0;
-    --accent-color: #F7F2FA;
-    --accent2-color: #FEF7FF;
-    --shadow-color: #CAC4D0;
-    
-    --title-color: #1D1B20;
-    --subTitle-color: #49454F;
+  --primary-color: #6750a4;
+  --secondary-color: #ece6f0;
+  --accent-color: #f7f2fa;
+  --accent2-color: #fef7ff;
+  --shadow-color: #cac4d0;
+
+  --title-color: #1d1b20;
+  --subTitle-color: #49454f;
 }
 
-* 
-{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--secondary-color);
+  font-family: "Roboto", sans-serif;
+  background-color: var(--secondary-color);
 }
 
-app-root{
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+app-root {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-h1{
-    font-size: 36px;
-    font-weight: 400;
-    padding: .5em;
-    border-bottom: solid 2px var(--primary-color) ;
+h1 {
+  font-size: 36px;
+  font-weight: 400;
+  padding: 0.5em;
+  border-bottom: solid 2px var(--primary-color);
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
