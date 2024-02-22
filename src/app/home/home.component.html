@@ -1,25 +1,42 @@
 <section>
     <h1>My Todo app</h1>
-    <div>
+    <div class="form-container">
         <h2>Add your first task:</h2>
-
         <form>
-            <mat-form-field [color]="colorControl.value!">
-                <mat-label>Status</mat-label>
-                <mat-select [formControl]="colorControl">
-                    <mat-option value="primary">Finished</mat-option>
-                    <mat-option value="accent">In progress</mat-option>
-                    <mat-option value="warn">Not done</mat-option>
-                </mat-select>
-            </mat-form-field>
-    
-            <mat-form-field>
+            <mat-form-field class="text-field">
+                <input matInput #input maxlength="10" placeholder="Title task">
                 <mat-label>Title</mat-label>
-                <input matInput #input maxlength="10" placeholder="Ex. Nougat">
             </mat-form-field>
-
+            <mat-form-field [color]="colorControl.value!">
+                    <mat-label>Status</mat-label>
+                    <mat-select [formControl]="colorControl">
+                        <mat-option value="primary">Finished</mat-option>
+                        <mat-option value="accent">In progress</mat-option>
+                        <mat-option value="warn">Not done</mat-option>
+                    </mat-select>
+            </mat-form-field>
             <button> Add your task</button>
         </form>
-        
     </div>
+    <article>
+        <h2>Todo List</h2>
+        <div>
+            <ul>
+                <mat-list>
+                    <mat-list-item>
+                        <span matListItemTitle>Title</span>
+                        <span matListItemLine>Second line</span>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <span matListItemTitle>Title</span>
+                        <span>Second line</span>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <span matListItemTitle>Title</span>
+                        Second line
+                    </mat-list-item>
+                </mat-list>
+            </ul>
+        </div>
+    </article>
 </section>
