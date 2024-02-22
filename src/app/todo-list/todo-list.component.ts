@@ -13,12 +13,10 @@ import { DataService } from '../data.service';
         <ul>
           <mat-list>
             <mat-list-item>
-              @for (item of items; track item.id){
+              @for (item of dataService.items2(); track item.id){
                 <ng-container matListItemTitle>
-                <div class="todo-task">
                   <span matListItemTitle>{{ item.title }}</span>
                   <span matListItemLine>{{ item.status }}</span>
-                </div>
                 </ng-container>
               }
             </mat-list-item>
@@ -34,7 +32,7 @@ import { DataService } from '../data.service';
 export class TodoListComponent implements OnInit {
   items: any[] = [];
 
-  constructor(private dataService: DataService) {}
+  constructor(public dataService: DataService) {}
 
   ngOnInit() {
     this.dataService.itemAdded.subscribe(item => {
