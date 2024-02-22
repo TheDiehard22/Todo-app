@@ -1,0 +1,30 @@
+
+.form-container{
+    padding: 1em;
+}
+
+h2{
+    font-weight: 400;
+}
+
+mat-form-field + mat-form-field {
+    margin-left: .5em;
+}
+
+::ng-deep .mat-mdc-text-field-wrapper.mdc-text-field {
+    background-color: var(--accent2-color) !important;
+}
+
+button{
+    display: inline-flex;
+    position: relative;
+    bottom: 7px;
+    height: 40px;
+    align-items: center;
+    color: white;
+    border-style: none;
+    padding: 0 3em;
+    margin: 0 2em;
+    border-radius: 100px;
+    background: var(--primary-color);
+}

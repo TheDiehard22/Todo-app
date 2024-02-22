@@ -1,0 +1,21 @@
+
+article{
+    display: block;
+    margin: 1em;
+    height: 19em;
+    overflow: hidden;
+    border-radius: 28px;
+    background-color: var(--secondary-color);
+}
+
+article h2{
+    padding: .5em 1em;
+    margin: 0;
+}
+
+article div{
+    background-color: white;
+    height: 81%;
+    padding: 0 2em
+}
+

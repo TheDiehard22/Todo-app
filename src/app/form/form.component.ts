@@ -1,5 +1,15 @@
-<!-- <section>
-    <h1>My Todo app</h1>
+import { Component } from '@angular/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ThemePalette } from '@angular/material/core';
+
+@Component({
+  selector: 'app-form',
+  standalone: true,
+  imports: [MatFormFieldModule, MatInputModule, MatSelectModule, FormsModule, ReactiveFormsModule],
+  template: `
     <div class="form-container">
         <h2>Add your first task:</h2>
         <form>
@@ -18,25 +28,9 @@
             <button type="submit"> Add your task</button>
         </form>
     </div>
-    <article>
-        <h2>Todo List</h2>
-        <div>
-            <ul>
-                <mat-list>
-                    <mat-list-item>
-                        <span matListItemTitle>1 Title</span>
-                        <span matListItemLine>Status</span>
-                    </mat-list-item>
-                    <mat-list-item>
-                        <span matListItemTitle>2 Title</span>
-                        <span>Status</span>
-                    </mat-list-item>
-                    <mat-list-item>
-                        <span matListItemTitle>3 Title</span>
-                        Status
-                    </mat-list-item>
-                </mat-list>
-            </ul>
-        </div>
-    </article>
-</section> -->
+  `,
+  styleUrl: './form.component.css'
+})
+export class FormComponent {
+  colorControl = new FormControl('primary' as ThemePalette);
+}
