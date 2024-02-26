@@ -23,8 +23,6 @@ import { DataService } from '../data.service';
         </ul>
       </div>
     </article>
-
-    <!-- @for (housingLocation of filteredLocationList; track housingLocation.id){ -->
   `,
   styleUrl: './todo-list.component.css'
 })

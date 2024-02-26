@@ -15,7 +15,9 @@ import { DataService } from '../data.service';
   template: `
     <div class="form-container">
       <h2>Add your first task:</h2>
-      <form class="flex gap-4 items-center" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+      
+      <form [formGroup]="formGroup" (ngSubmit)="onSubmit($event)">
+
         <mat-form-field class="text-field">
           <input matInput maxlength="20" placeholder="Title task" [formControl]="titleControl">
           <mat-label>Title</mat-label>
