@@ -2,10 +2,31 @@
   padding: 1em;
 }
 
+form{
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
+}
+
 h2 {
   font-weight: 400;
 }
 
 ::ng-deep .mat-mdc-text-field-wrapper.mdc-text-field {
   background-color: var(--accent2-color) !important;
+}
+
+/* textfield */
+/* .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  --mdc-filled-text-field-container-color: #fef7ff;
+  background-color: var(--mdc-filled-text-field-container-color);
+} */
+
+/* Button */
+.mat-mdc-raised-button.mat-primary {
+  background-color: var(--primary-color);
+  position: relative;
+  bottom: 10px;
+  border-radius: 100px;
 }

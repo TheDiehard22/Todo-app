@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -11,13 +11,11 @@ import { DataService } from '../data.service';
 @Component({
   selector: 'app-form',
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, MatSelectModule, FormsModule, ReactiveFormsModule, MatButtonModule],
+  imports: [MatFormFieldModule, MatInputModule, MatSelectModule, ReactiveFormsModule, MatButtonModule],
   template: `
     <div class="form-container">
-      <h2>Add your first task:</h2>
-      
-      <form [formGroup]="formGroup" (ngSubmit)="onSubmit($event)">
-
+      <h2>Add your todo task:</h2>
+      <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
         <mat-form-field class="text-field">
           <input matInput maxlength="20" placeholder="Title task" [formControl]="titleControl">
           <mat-label>Title</mat-label>
@@ -35,7 +33,7 @@ import { DataService } from '../data.service';
           </mat-select>
         </mat-form-field>
 
-        <button color="primary" mat-raised-button type="submit">Toevoegen</button>
+        <button color="primary" mat-raised-button type="submit">Add</button>
       </form>
     </div>
   `,
