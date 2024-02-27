@@ -1,9 +1,9 @@
-article{
+.container-top{
     margin: 2em 1em;
     height: 16.5em;
 }
 
-article > div{
+.container-top > div{
     padding: 0 1em;
     height: 80%;
 }
@@ -26,4 +26,8 @@ form > div{
 
 form button{
     font-size: 14px;
+}
+
+.container-bottom{
+    height: 12em;
 }

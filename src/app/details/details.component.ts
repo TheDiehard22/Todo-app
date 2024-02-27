@@ -19,21 +19,23 @@ import { MatDividerModule } from '@angular/material/divider';;
         <h1> Task: {{ todoItem?.title }} </h1>
         <p> Status: {{ todoItem?.status }} </p>
       </header>
-
-      <article>
-        <h2 class="title-list">Description</h2>
-        <div class="a-container">
-          <form class="example-form">
-            <textarea matInput placeholder="Type here your description..."></textarea>
-            <div>
-              <button mat-stroked-button color="primary">Save</button>
-              <button mat-stroked-button color="warn">Delete</button>
-            </div>
-          </form>
-        </div>
-      </article>
-
-      <h2>History</h2>
+      <main>
+        <article class="container-top">
+          <h2 class="title-list">Description</h2>
+          <div class="a-container">
+            <form class="example-form">
+              <textarea matInput placeholder="Type here your description..."></textarea>
+              <div>
+                <button mat-stroked-button color="primary">Save</button>
+                <button mat-stroked-button color="warn">Delete</button>
+              </div>
+            </form>
+          </div>
+        </article>
+        <article class="container-bottom">
+          <h2 class="title-list">History</h2>
+        </article>
+      </main>
     </section>
   `,
   styleUrl: './details.component.css'

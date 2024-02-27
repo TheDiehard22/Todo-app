@@ -19,7 +19,7 @@ import { TodoItem } from '../todo-item';
       <h2>Add your todo task:</h2>
       <form [formGroup]="formGroup" #fgDir="ngForm" (ngSubmit)="onSubmit(fgDir)">
         <mat-form-field class="text-field">
-          <input matInput maxlength="20" placeholder="Title task" [formControl]="titleControl">
+          <input matInput maxlength="20" placeholder="Title name" [formControl]="titleControl">
           <mat-label>Title</mat-label>
           @if (titleControl.hasError('required')) {
             <mat-error>Title is required</mat-error>
@@ -60,21 +60,24 @@ export class FormComponent {
   ) { }
 
   onSubmit(fgDir: FormGroupDirective) {
-    // doe niks als het formulier niet valid is
     if (this.formGroup.invalid) {
       return;
     }
 
-    const newTodo = {
-      id: this.idCounter++,
-      ...this.formGroup.value
-    } as TodoItem;
+    // const newTodo = {
+    //   id: this.idCounter++,
+    //   ...this.formGroup.value
+    // } as TodoItem;
 
-    this.dataService.items2.update(items => { items.push(newTodo); return items; });
+    this.dataService.items2.update(items => {
+      items.push({
+        id: this.idCounter++,
+        ...this.formGroup.value
+      } as TodoItem);
+      return items;
+    });
+    
     fgDir.resetForm();
     this.formGroup.reset({ title: '', status: 'Pending' });
-    // this.formGroup.markAsPristine();
-    // this.titleControl.setErrors(null);
-    // this.titleControl.markAsTouched();
   }
 }
