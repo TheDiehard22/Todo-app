@@ -4,28 +4,36 @@ import { TodoItem } from '../todo-item';
 import { DataService } from '../data.service';
 
 import { MatListModule } from '@angular/material/list';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {FormsModule} from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button'
+import { MatDividerModule } from '@angular/material/divider';;
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [MatListModule, FormsModule, MatFormFieldModule],
+  imports: [MatListModule, FormsModule, MatFormFieldModule, MatButtonModule, MatDividerModule],
   template: `
     <section>
       <header>
-        <h1>  {{ todoItem?.title }} </h1>
-        <p> {{ todoItem?.status }} </p>
+        <h1> Task: {{ todoItem?.title }} </h1>
+        <p> Status: {{ todoItem?.status }} </p>
       </header>
 
       <article>
         <h2 class="title-list">Description</h2>
-        <div>
+        <div class="a-container">
           <form class="example-form">
-            <textarea matInput placeholder="..."></textarea>
+            <textarea matInput placeholder="Type here your description..."></textarea>
+            <div>
+              <button mat-stroked-button color="primary">Save</button>
+              <button mat-stroked-button color="warn">Delete</button>
+            </div>
           </form>
         </div>
       </article>
+
+      <h2>History</h2>
     </section>
   `,
   styleUrl: './details.component.css'

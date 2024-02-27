@@ -11,7 +11,7 @@ import { DataService } from '../data.service';
   template: `
     <article>
       <h2 class="title-list">Todo List</h2>
-      <div>
+      <div class="a-container">
         <ul>
           <mat-list>
             @for (item of dataService.items2(); track item.id){

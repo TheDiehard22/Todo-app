@@ -1,3 +1,29 @@
+article{
+    margin: 2em 1em;
+    height: 16.5em;
+}
+
+article > div{
+    padding: 0 1em;
+    height: 80%;
+}
+
+form{
+    height: 100%;
+    padding: 0.5em 
+}
+
 .title-list{
     padding-left: 1em;
+    font-size: 1.2em;
+}
+
+form > div{
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.2em;
+}
+
+form button{
+    font-size: 14px;
 }
