@@ -9,7 +9,9 @@ import { TodoListComponent } from '../todo-list/todo-list.component';
   imports: [FormComponent, TodoListComponent ],
   template: ` 
     <section>
-      <h1>My Todo app</h1>
+      <header>
+        <h1>My Todo app</h1>
+      </header>
       <app-form></app-form>
       <app-todo-list></app-todo-list>
     </section>

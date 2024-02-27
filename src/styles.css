@@ -33,17 +33,74 @@ app-root {
   align-items: center;
 }
 
-h1 {
-  font-size: 36px;
-  font-weight: 400;
-  padding: 0.5em;
-  border-bottom: solid 2px var(--primary-color);
-}
 html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em;
+  border-bottom: solid 2px var(--primary-color);
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 400;
+  padding: 0.5em;
+}
+
+section{
+  padding: 1em;
+  background-color: var(--accent-color);
+  height: clamp(40em, 50vw, 40em);
+  width: 55vw;
+}
+
+.mat-typography h1, .mat-typography p, .mat-typography h2 {
+  margin: 0;
+  padding: 0;
+}
+
+article{
+  display: block;
+  margin: 1em;
+  height: 19em;
+  overflow: hidden;
+  border-radius: 28px;
+  background-color: var(--secondary-color);
+}
+
+.mat-typography h2{
+  padding: .5em;
+}
+
+article div{
+  background-color: white;
+  height: 81%;
+  padding: 0 2em
+}
+
+.mat-mdc-list-base .mdc-list-item__content {
+  z-index: 10;
+}
+
+.todo-item{
+  border: 1px solid black;
+}
+
+
+textarea{
+  width: 100%;
+  height: 13em;
+  padding: 1em;
+  margin: 1.5em 0;
+  border: none;
 }
