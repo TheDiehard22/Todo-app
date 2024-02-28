@@ -1,3 +1,9 @@
+header div{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
 .container-top{
     margin: 2em 1em;
     height: 16.5em;
@@ -30,4 +36,18 @@ form button{
 
 .container-bottom{
     height: 12em;
+}
+
+.btn-previous{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+
+.mat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

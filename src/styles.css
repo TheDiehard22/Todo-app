@@ -23,6 +23,7 @@
 body {
   font-family: "Roboto", sans-serif;
   background-color: var(--secondary-color);
+  font-size: 1em;
 }
 
 app-root {
@@ -60,7 +61,7 @@ h1 {
 section{
   padding: 1em;
   background-color: var(--accent-color);
-  height: clamp(40em, 50vw, 40em);
+  height: clamp(41.5em, 50vw, 42em);
   width: 55vw;
 }
 
@@ -72,7 +73,7 @@ section{
 article{
   display: block;
   margin: 1em;
-  height: 19em;
+  height: 20em;
   overflow: hidden;
   border-radius: 28px;
   background-color: var(--secondary-color);
@@ -111,3 +112,7 @@ textarea{
   resize: none; 
 }
 
+.mat-mdc-button>.mat-icon {
+  --mat-text-button-icon-spacing: 0;
+  margin-right: var(--mat-text-button-icon-spacing);
+}
