@@ -28,9 +28,8 @@ import { DataService } from '../data.service';
   styleUrl: './todo-list.component.css'
 })
 export class TodoListComponent implements OnInit {
-  constructor(public dataService: DataService) {}
 
-  ngOnInit() {
+  constructor(public dataService: DataService) { }
+  ngOnInit() { }
 
-  }
 }

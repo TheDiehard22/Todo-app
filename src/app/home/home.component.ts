@@ -6,7 +6,7 @@ import { TodoListComponent } from '../todo-list/todo-list.component';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FormComponent, TodoListComponent ],
+  imports: [FormComponent, TodoListComponent],
   template: ` 
     <section>
       <header>

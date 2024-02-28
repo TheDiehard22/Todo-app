@@ -46,17 +46,17 @@ export class FormComponent {
 
   formData = { title: '', status: '' };
 
-  // Definieert `titleControl` voor de titel-invoer met initiële waarde en validatieregel (titel vereist).
+  // Definieert validatieregel.
   titleControl = new FormControl('', Validators.required);
-  // Definieert `statusControl` voor de status-invoer met initiële waarde en validatieregel.
+  // Definieert validatieregel.
   statusControl = new FormControl<TodoStatuses>('Pending', Validators.required);
 
   formGroup = this.fb.group({
     title: this.titleControl,
     status: this.statusControl,
-  }, { updateOn: 'blur' });  // Dit is om validatie te activeren wanneer de focus van het veld verdwijnt.
-  
-  // private idCounter = 0;
+  },
+    // Validatie activeren wanneer de focus van het veld verdwijnt.
+    { updateOn: 'blur' });
 
   // Injecteert `DataService` en `FormBuilder` in de constructor.
   constructor(
@@ -65,18 +65,13 @@ export class FormComponent {
   ) { }
 
   onSubmit(fgDir: FormGroupDirective) {
-  // Controleert of het formulier geldig is.
+    // Controleert of het formulier geldig is.
     if (this.formGroup.invalid) {
       return;
     }
-  // Voegt een nieuw item toe aan de `items2` data.
-    // this.dataService.items2.update(items => {
-    //   const newItems = items.concat( this.formGroup.value as TodoItem);
-    //   // items.push(this.formGroup.value as TodoItem);
-    //   return newItems;
-    // });
+
     this.dataService.addItem(this.formGroup.value as TodoItem);
-  // Reset het formulier.  
+    // Reset het formulier.  
     fgDir.resetForm();
     this.formGroup.reset({ title: '', status: 'Pending' });
   }

@@ -49,13 +49,14 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class DetailsComponent {
 
+  // Injecteer services met dependency injection
   route: ActivatedRoute = inject(ActivatedRoute);
   dataService = inject(DataService);
   todoItem: TodoItem | undefined;
 
   constructor(private router: Router) { // Injecteer de Router service
-    const id = Number(this.route.snapshot.params['id']);
-    this.todoItem = this.dataService.items2().find(item => item.id === id);
+    const id = Number(this.route.snapshot.params['id']); // Haal de ID op uit de route parameter
+    this.todoItem = this.dataService.items2().find(item => item.id === id); // Zoek het TodoItem object met de opgehaalde ID
   }
 
   goBack() {
