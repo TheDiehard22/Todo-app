@@ -56,7 +56,7 @@ export class FormComponent {
     status: this.statusControl,
   }, { updateOn: 'blur' });  // Dit is om validatie te activeren wanneer de focus van het veld verdwijnt.
   
-  private idCounter = 0;
+  // private idCounter = 0;
 
   // Injecteert `DataService` en `FormBuilder` in de constructor.
   constructor(
@@ -70,13 +70,12 @@ export class FormComponent {
       return;
     }
   // Voegt een nieuw item toe aan de `items2` data.
-    this.dataService.items2.update(items => {
-      items.push({
-        id: this.idCounter++,
-        ...this.formGroup.value
-      } as TodoItem);
-      return items;
-    });
+    // this.dataService.items2.update(items => {
+    //   const newItems = items.concat( this.formGroup.value as TodoItem);
+    //   // items.push(this.formGroup.value as TodoItem);
+    //   return newItems;
+    // });
+    this.dataService.addItem(this.formGroup.value as TodoItem);
   // Reset het formulier.  
     fgDir.resetForm();
     this.formGroup.reset({ title: '', status: 'Pending' });

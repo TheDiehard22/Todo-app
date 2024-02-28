@@ -23,7 +23,7 @@ import { MatIconModule } from '@angular/material/icon';
             <mat-icon>arrow_back</mat-icon>
           </button>
           <h1> {{ todoItem?.title }} </h1>
-</div>
+        </div>
         <p> Status: {{ todoItem?.status }} </p>
       </header>
       <main>
@@ -34,7 +34,7 @@ import { MatIconModule } from '@angular/material/icon';
               <textarea matInput placeholder="Type here your description..."></textarea>
               <div>
                 <button mat-stroked-button color="primary">Save</button>
-                <button mat-stroked-button color="warn">Delete</button>
+                <button mat-stroked-button color="warn">Clear</button>
               </div>
             </form>
           </div>

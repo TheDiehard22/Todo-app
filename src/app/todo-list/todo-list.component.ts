@@ -15,7 +15,7 @@ import { DataService } from '../data.service';
         <ul>
           <mat-list>
             @for (item of dataService.items2(); track item.id){
-            <mat-list-item>
+              <mat-list-item>
                 <a [routerLink]="['/details', item.id]" matListItemTitle>{{ item.title }}</a>
                 <a matListItemLine>{{ item.status }}</a>
               </mat-list-item>
