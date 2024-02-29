@@ -24,7 +24,7 @@ import { MatIconModule } from '@angular/material/icon';
           </button>
           <h1> {{ todoItem?.title }} </h1>
         </div>
-        <p> Status: {{ todoItem?.status }} </p>
+        <p> Status: <span>{{ todoItem?.status }}</span> </p>
       </header>
       <main>
         <article class="container-top">

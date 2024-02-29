@@ -27,6 +27,11 @@ header div{
     justify-content: center;
 }
 
+p span{
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
 form{
     height: 100%;
     padding: 0.5em 
