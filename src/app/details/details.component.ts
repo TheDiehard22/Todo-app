@@ -28,19 +28,26 @@ import { MatIconModule } from '@angular/material/icon';
       </header>
       <main>
         <article class="container-top">
-          <h2 class="title-list">Description</h2>
+          <h2 class="title-list">Add a comment</h2>
           <div class="a-container">
-            <form class="example-form">
-              <textarea matInput placeholder="Type here your description..."></textarea>
+              <textarea placeholder="Share your thoughts..." [(ngModel)]="comment" maxlength="300" ></textarea>
               <div>
-                <button mat-stroked-button color="primary">Save</button>
-                <button mat-stroked-button color="warn">Clear</button>
+                <button mat-stroked-button color="primary" (click)="onSubmit()">Comment</button>
               </div>
-            </form>
           </div>
         </article>
         <article class="container-bottom">
-          <h2 class="title-list">History</h2>
+          <h2 class="title-list">Comment list</h2>
+          <ul>
+              @for (comment of comments; track comment){
+                <li>
+                  <p>{{ comment }}</p>
+                  <button mat-icon-button (click)="onDeleteComment(comment)">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </li>
+              }
+          </ul>
         </article>
       </main>
     </section>
@@ -63,4 +70,21 @@ export class DetailsComponent {
     this.router.navigate(['/']); // Navigeer naar de homepage
   }
 
+  comment: string = ''; // Declare with an initial value
+  comments: string[] = []; // Array to store user comments
+
+  onSubmit() {
+    this.comments.push(this.comment); // Add new comment to the array
+    this.comment = ""; // Reset textarea after submission
+  }
+
+  onDeleteComment(comment: string) {
+    const index = this.comments.indexOf(comment);
+    if (index > -1) {
+      this.comments.splice(index, 1); // Remove the comment from the array
+    }
+  }
 }
+
+
+

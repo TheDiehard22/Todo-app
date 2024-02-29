@@ -61,7 +61,7 @@ h1 {
 section{
   padding: 1em;
   background-color: var(--accent-color);
-  height: clamp(41.5em, 50vw, 42em);
+  /* height: clamp(41.5em, 50vw, 46em); */
   width: 55vw;
 }
 
@@ -116,3 +116,4 @@ textarea{
   --mat-text-button-icon-spacing: 0;
   margin-right: var(--mat-text-button-icon-spacing);
 }
+
