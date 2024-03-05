@@ -56,13 +56,12 @@ form button{
     height: 18em;
 }
 
-ul{
+.comment-list{
     overflow: auto;
     height: 14em;
     display: flex;
     gap: 0.5em;
     flex-direction: column;
-    list-style-type: square;
 }
 
 li{

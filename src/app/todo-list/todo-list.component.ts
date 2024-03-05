@@ -12,16 +12,16 @@ import { DataService } from '../data.service';
     <article>
       <h2 class="title-list">Todo List</h2>
       <div class="a-container">
-        <ul>
-          <mat-list>
+        <ol>
             @for (item of dataService.items2(); track item.id){
-              <mat-list-item>
-                <a [routerLink]="['/details', item.id]" matListItemTitle>{{ item.title }}</a>
-                <a matListItemLine>{{ item.status }}</a>
-              </mat-list-item>
+              <li>
+                <div>
+                  <a [routerLink]="['/details', item.id]" matListItemTitle>{{ item.title }}</a>
+                  <a matListItemLine>{{ item.status }}</a>
+                </div>
+              </li>
             }
-          </mat-list>
-        </ul>
+        </ol>
       </div>
     </article>
   `,

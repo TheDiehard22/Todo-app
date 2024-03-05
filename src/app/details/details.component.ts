@@ -46,7 +46,7 @@ import { MatIconModule } from '@angular/material/icon';
         </article>
         <article class="container-bottom">
           <h2 class="title-list">Comment list</h2>
-          <ul>
+          <ul class="comment-list list-discs"l>
               @for (comment of comments; track comment){
                 <li>
                   <p>{{ comment }}</p>
