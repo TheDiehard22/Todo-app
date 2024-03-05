@@ -35,7 +35,7 @@ import { TodoItem } from '../todo-item';
           </mat-select>
         </mat-form-field>
 
-        <button color="primary" mat-raised-button type="submit">Add</button>
+        <button color="primary" mat-raised-button type="submit">Add your task</button>
       </form>
     </div>
   `,

@@ -4,6 +4,14 @@ header div{
     gap: 1em;
 }
 
+h2{
+    border-bottom: 2px solid var(--shadow-color);
+}
+
+.a-container{
+    border: none;
+}
+
 .container-top{
     margin: 2em 1em;
     height: 16.5em;
@@ -56,18 +64,28 @@ form button{
     height: 18em;
 }
 
-.comment-list{
+.container-bottom div{
     overflow: auto;
-    height: 14em;
+}
+
+ul{
+    overflow: auto;
     display: flex;
+    height: 100%;
     gap: 0.5em;
     flex-direction: column;
+    background-color: white;
 }
 
 li{
-    background-color: white;
     padding: 1em 1.5em;
+    margin: 0 2em;
+    border-bottom: 2px solid lightgray;
+}
+
+li div{
     display: flex;
     justify-content: space-between;
     align-items: center;
+
 }

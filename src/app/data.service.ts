@@ -17,4 +17,8 @@ export class DataService {
             return newItems; // Retourneer de nieuwe items array om de signal te updaten
         });
     }
+
+    deleteItem(id: number) {  // Verwijdert een TodoItem uit de lijst op basis van ID
+        this.items2.update(items => items.filter(item => item.id !== id)); // Filter het item met het opgegeven ID
+    }
 }

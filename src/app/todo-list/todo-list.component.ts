@@ -14,12 +14,14 @@ import { DataService } from '../data.service';
       <div class="a-container">
         <ol>
             @for (item of dataService.items2(); track item.id){
-              <li>
-                <div>
-                  <a [routerLink]="['/details', item.id]" matListItemTitle>{{ item.title }}</a>
-                  <a matListItemLine>{{ item.status }}</a>
-                </div>
-              </li>
+              <a [routerLink]="['/details', item.id]" matListItemTitle>
+                <li>
+                  <div>
+                    <p>{{ item.title }}</p>
+                    <p matListItemLine>{{ item.status }}</p>
+                  </div>
+                </li>
+              </a>
             }
         </ol>
       </div>

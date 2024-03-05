@@ -1,5 +1,8 @@
+article{
+    height: 22em;
+}
 article div{
-    height: 82%;
+    height: 85%;
     overflow: auto ;
 }
 
@@ -8,11 +11,12 @@ article div{
 }
 
 ol{
-    list-style-type: none;
+    list-style: none;
+    counter-reset: item;
 }
 
 li{
-    counter-increment: step-counter;
+    counter-increment: item;
     border-bottom: 1px solid lightgray;
     padding: 1.5em; 
     display: flex;
@@ -20,8 +24,7 @@ li{
 }
 
 li::before {
-    content: counter(step-counter);
-    margin-right: 20px;
+    content: counter(item);
     font-size: 80%;
     background-color: #EADDFF;
     color: #21005D;
@@ -37,8 +40,26 @@ li::before {
 li div{
     display: flex;
     flex-direction: column;
+    padding: 0 1em;
 }
 
-li a:nth-of-type(1){
+li p:nth-of-type(1){
     font-weight: bold;
+}
+
+li p:nth-of-type(2){
+    color: grey;
+}
+
+li:hover p:nth-last-of-type(2){
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+li:hover p{
+    color: var(--primary-color);
+}
+
+li:hover{
+    border-bottom: solid 1px var(--primary-color);
 }
