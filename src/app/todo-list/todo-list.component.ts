@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
 import { DataService } from '../data.service';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @Component({
   selector: 'app-todo-list',
   standalone: true,
-  imports: [MatListModule, RouterModule],
+  imports: [MatListModule, RouterModule, MatIconModule],
   template: `
     <article>
       <h2 class="title-list">Todo List</h2>
@@ -19,6 +20,11 @@ import { DataService } from '../data.service';
                   <div>
                     <p>{{ item.title }}</p>
                     <p matListItemLine>{{ item.status }}</p>
+                  </div>
+                  <div>
+                    <button mat-icon-button (click)="(item)">
+                      <mat-icon>delete</mat-icon>
+                    </button>
                   </div>
                 </li>
               </a>

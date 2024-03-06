@@ -18,7 +18,7 @@ ol{
 li{
     counter-increment: item;
     border-bottom: 1px solid lightgray;
-    padding: 1.5em; 
+    padding: 1.5em 0; 
     display: flex;
     align-items: center;
 }
@@ -29,18 +29,20 @@ li::before {
     background-color: #EADDFF;
     color: #21005D;
     font-weight: bold;
-    border-radius: 50%;
-    width: 2.5em;
-    height: 2.5em;
+    border-radius: 100px;
+    width: 30px;
+    height: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: .5em;
 }
 
-li div{
+li div:nth-of-type(1){
     display: flex;
     flex-direction: column;
     padding: 0 1em;
+    min-width: 10em;
 }
 
 li p:nth-of-type(1){
@@ -62,4 +64,10 @@ li:hover p{
 
 li:hover{
     border-bottom: solid 1px var(--primary-color);
+}
+
+li div:nth-of-type(2){
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
 }
