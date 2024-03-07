@@ -13,20 +13,21 @@ h2 {
   font-weight: 400;
 }
 
-::ng-deep .mat-mdc-text-field-wrapper.mdc-text-field {
-  background-color: var(--accent2-color) !important;
-}
-
-/* textfield */
-/* .mdc-text-field--filled:not(.mdc-text-field--disabled) {
-  --mdc-filled-text-field-container-color: #fef7ff;
-  background-color: var(--mdc-filled-text-field-container-color);
-} */
-
 /* Button */
 .mat-mdc-raised-button.mat-primary {
   background-color: var(--primary-color);
   position: relative;
   bottom: 10px;
   border-radius: 100px;
+  width: 14em;
+  height: 2.8em;
+}
+
+#btn-add::after{
+  content:"Add your item"
+}
+@media (max-width: 1000px) {
+  #btn-add::after{
+    content:"Add";
+  }
 }

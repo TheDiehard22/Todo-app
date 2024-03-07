@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
 
 import { TodoStatuses } from '../../models';
 import { DataService } from '../data.service';
@@ -13,7 +14,7 @@ import { TodoItem } from '../todo-item';
 @Component({
   selector: 'app-form',
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, MatSelectModule, ReactiveFormsModule, MatButtonModule],
+  imports: [MatFormFieldModule, MatInputModule, MatSelectModule, ReactiveFormsModule, MatButtonModule, MatIconModule],
   template: `
     <div class="form-container">
       <h2>Add your todo task:</h2>
@@ -35,7 +36,9 @@ import { TodoItem } from '../todo-item';
           </mat-select>
         </mat-form-field>
 
-        <button color="primary" mat-raised-button type="submit">Add your task</button>
+        <button color="primary" mat-raised-button type="submit" id="btn-add">
+          <mat-icon>add</mat-icon>
+        </button>
       </form>
     </div>
   `,

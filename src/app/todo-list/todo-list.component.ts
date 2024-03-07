@@ -26,7 +26,7 @@ import { TodoItem } from '../todo-item';
                 </li>
               </a>
               <button mat-icon-button (click)="deleteItem(item)">
-                <mat-icon>delete</mat-icon>
+                <mat-icon class="trash-icon">delete</mat-icon>
               </button>
             </div>
           }

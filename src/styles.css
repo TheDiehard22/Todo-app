@@ -62,6 +62,7 @@ section{
   padding: 1em;
   background-color: var(--accent-color);
   width: 55vw;
+  max-width: 44em;
 }
 
 .mat-typography h1, .mat-typography p, .mat-typography h2 {
@@ -114,5 +115,10 @@ textarea{
 .mat-mdc-button>.mat-icon {
   --mat-text-button-icon-spacing: 0;
   margin-right: var(--mat-text-button-icon-spacing);
+}
+
+.mat-mdc-text-field-wrapper.mdc-text-field {
+  --mdc-filled-text-field-container-color: #fef7ff;
+  background-color: var(--mdc-filled-text-field-container-color);
 }
 

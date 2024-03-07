@@ -1,5 +1,6 @@
 article{
     height: 22em;
+    max-width: 40em;
 }
 article div{
     height: 85%;
@@ -84,4 +85,12 @@ li div:nth-of-type(2){
 
 .list-item button{
     padding: 0 .5em;
+}
+
+.trash-icon{
+    color: #21005D;
+}
+
+.trash-icon:hover{
+    color: #998db1;
 }
