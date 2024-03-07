@@ -15,10 +15,24 @@ ol{
     counter-reset: item;
 }
 
+.list-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    border-bottom: 1px solid lightgray;
+}
+
+.list-item:hover{
+    border-bottom: solid 1px var(--primary-color);
+}
+
+.list-item a{
+    width: 100%;
+}
+
 li{
     counter-increment: item;
-    border-bottom: 1px solid lightgray;
-    padding: 1.5em 0; 
+    padding: 1em 0; 
     display: flex;
     align-items: center;
 }
@@ -31,7 +45,7 @@ li::before {
     font-weight: bold;
     border-radius: 100px;
     width: 30px;
-    height: 24px;
+    height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,12 +76,12 @@ li:hover p{
     color: var(--primary-color);
 }
 
-li:hover{
-    border-bottom: solid 1px var(--primary-color);
-}
-
 li div:nth-of-type(2){
     display: flex;
     justify-content: flex-end;
     width: 100%;
+}
+
+.list-item button{
+    padding: 0 .5em;
 }
