@@ -17,17 +17,20 @@ h2 {
 .mat-mdc-raised-button.mat-primary {
   background-color: var(--primary-color);
   position: relative;
-  bottom: 10px;
-  border-radius: 100px;
-  width: 14em;
+  bottom: 4px;
+  border-radius: 0.5em;
+  min-width: 12em;
   height: 2.8em;
 }
 
 #btn-add::after{
-  content:"Add your item"
+  content:"Create new"
 }
 @media (max-width: 1000px) {
+  .mat-mdc-raised-button.mat-primary{
+    min-width: 7em;
+  }
   #btn-add::after{
-    content:"Add";
+    content:"Create";
   }
 }

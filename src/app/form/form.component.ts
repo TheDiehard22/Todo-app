@@ -17,7 +17,7 @@ import { TodoItem } from '../todo-item';
   imports: [MatFormFieldModule, MatInputModule, MatSelectModule, ReactiveFormsModule, MatButtonModule, MatIconModule],
   template: `
     <div class="form-container">
-      <h2>Add your todo task:</h2>
+      <h2>Create a new to-do:</h2>
       <form [formGroup]="formGroup" #fgDir="ngForm" (ngSubmit)="onSubmit(fgDir)">
         <mat-form-field class="text-field">
           <input matInput maxlength="20" placeholder="Title name" [formControl]="titleControl">

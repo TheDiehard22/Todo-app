@@ -10,7 +10,7 @@ import { TodoListComponent } from '../todo-list/todo-list.component';
   template: ` 
     <section>
       <header>
-        <h1>My Todo app</h1>
+        <h1>The Todo Organizer</h1>
       </header>
       <app-form></app-form>
       <app-todo-list></app-todo-list>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { TodoItem } from '../todo-item';
 import { DataService } from '../data.service';
@@ -7,10 +8,11 @@ import { Router } from '@angular/router';
 
 import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms'; 
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-details',
@@ -22,6 +24,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     MatDividerModule,
     MatIconModule,
+    ReactiveFormsModule,
   ],
   template: `
     <section>
@@ -37,26 +40,28 @@ import { MatIconModule } from '@angular/material/icon';
       <main>
         <article class="container-top">
           <h2 class="title-list">Add a comment</h2>
-          <div class="a-container">
-              <textarea placeholder="Share your thoughts..." [(ngModel)]="comment" maxlength="350" ></textarea>
-              <div>
-                <button mat-stroked-button color="primary" (click)="addComment()">Comment</button>
-              </div>
-          </div>
+          <form [formGroup]="commentForm" (ngSubmit)="addComment()">
+            <textarea matInput placeholder="Leave a comment..." formControlName="comment" maxlength="350" (keydown)="onKeyDown($event)"></textarea>
+            <div>
+              <button mat-raised-button color="primary" type="submit">Comment</button>
+            </div>
+          </form>
         </article>
         <article class="container-bottom">
           <h2 class="title-list">Comment list</h2>
           <div>
-            <ul class="list-disc">
+            <ul>
                 @for (comment of comments; track comment){
-                  <li>
-                    <div>
-                      <p>{{ comment }}</p>
-                      <button mat-icon-button (click)="removeComment(comment)">
-                        <mat-icon>delete</mat-icon>
-                      </button>
-                    </div>
-                  </li>
+                  <div class="comment-item">
+                    <li>
+                      <div>
+                        <p>{{ comment }}</p>
+                        <button mat-icon-button (click)="removeComment(comment)">
+                          <mat-icon>delete</mat-icon>
+                        </button>
+                      </div>
+                    </li>
+                </div>
                 }
             </ul>
           </div>
@@ -81,18 +86,28 @@ export class DetailsComponent {
     private route: ActivatedRoute,
     private dataService: DataService, 
     private router: Router,
+    private fb: FormBuilder,
     private commentService: CommentService,) {
       const id = Number(this.route.snapshot.params['id']);
       this.todoItem = this.dataService.items2().find(item => item.id === id);
       this.pageId = this.route.snapshot.params['id'] ?? 0;
+      this.commentForm = this.fb.group({
+        comment: ['', Validators.required], // Add the required validator
+      });
   }
 
   addComment() {
-    // Add the comment to CommentService
-    this.commentService.addComment(this.pageId, this.comment);
-    this.comment = ''; // Clear the input field
-    // Refresh the comments list
-    this.comments = this.commentService.getComments(this.pageId);
+    if (this.commentForm.valid) {
+      const comment = this.commentForm.value.comment;
+      // Add the comment to CommentService
+      this.commentService.addComment(this.pageId, comment);
+      this.commentForm.reset(); // Reset the form after successful submission
+      // Refresh the comments list
+      this.comments = this.commentService.getComments(this.pageId);
+    } else {
+      // Handle invalid form (optional)
+      console.log("Form is invalid!");
+    }
   }
 
   removeComment(comment: string) {
@@ -101,12 +116,26 @@ export class DetailsComponent {
       this.comments.splice(index, 1); // Remove the comment from the array
     }
   }
+
+  onKeyDown(event: KeyboardEvent) {
+    if (event.key === 'Enter' && !event.ctrlKey && !event.altKey && !event.shiftKey) {
+      event.preventDefault(); // Prevent default form submission
+      if (this.commentForm.valid) {
+        this.addComment();
+      }
+    }
+  }
   
   ngOnInit() {
     // Retrieve comments from CommentService on component initialization
     this.pageId = Number(this.route.snapshot.params['id']);
     this.comments = this.commentService.getComments(this.pageId);
+    this.commentForm = this.fb.group({
+      comment: ['', Validators.required], // Add the required validator
+    });
   }
+
+  commentForm: FormGroup;
   
   goBack() {
     this.router.navigate(['/']); // Navigeer naar de homepage

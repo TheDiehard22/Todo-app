@@ -12,7 +12,7 @@ import { TodoItem } from '../todo-item';
   imports: [MatListModule, RouterModule, MatIconModule],
   template: `
     <article>
-      <h2 class="title-list">Todo List</h2>
+      <h2 class="title-list">Task manager</h2>
       <div class="a-container">
         <ol>
           @for (item of dataService.items2(); track item.id){
