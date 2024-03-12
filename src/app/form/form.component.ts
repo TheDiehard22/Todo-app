@@ -2,13 +2,14 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroupDirective, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { MatIconModule } from '@angular/material/icon';
 
 import { TodoStatuses } from '../../models';
 import { DataService } from '../data.service';
 import { TodoItem } from '../todo-item';
+import { TodoService } from '../todo.service';
 
 
 @Component({
@@ -64,6 +65,7 @@ export class FormComponent {
   // Injecteert `DataService` en `FormBuilder` in de constructor.
   constructor(
     public dataService: DataService,
+    private todoService: TodoService,
     private fb: FormBuilder
   ) { }
 
@@ -73,8 +75,9 @@ export class FormComponent {
       return;
     }
 
+    this.todoService.addItem(this.formGroup.value as TodoItem);
     this.dataService.addItem(this.formGroup.value as TodoItem);
-    // Reset het formulier.  
+    // Reset het formulier.
     fgDir.resetForm();
     this.formGroup.reset({ title: '', status: 'Pending' });
   }
