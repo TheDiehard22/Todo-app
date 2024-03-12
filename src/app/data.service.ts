@@ -2,6 +2,9 @@ import { Injectable, signal } from '@angular/core';
 
 import { TodoItem } from './todo-item';
 
+/**
+ * @deprecated
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -12,7 +15,11 @@ export class DataService {
 
   pageId = signal(0);
 
-  addItem(item: TodoItem) {   // Voegt een nieuw TodoItem toe aan de lijst
+  /**
+   * @description asdasdasd
+   * @param item
+   */
+  addItem(item: TodoItem) {   // Voegt een n    // Reset het formulier.ieuw TodoItem toe aan de lijst
     this.items2.update(items => {   // Update de items2 signal met de nieuwe items
       const id = item.id ? item.id : this.counter++;  // Gebruik de item ID of genereer een nieuwe
       const newItems = items.concat({ id, ...item });  // Creëer een nieuwe array met het nieuwe item

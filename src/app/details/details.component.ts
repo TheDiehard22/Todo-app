@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, signal, WritableSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, signal, WritableSignal } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
@@ -63,7 +63,7 @@ import { TodoService } from '../todo.service';
           <h2 class="title-list">Comment list</h2>
           <div>
             <ul>
-                @for (comment of comments; track comment){
+                @for (comment of todoService.currentTodo()?.comments; track comment) {
                   <div class="comment-item">
                     <li>
                       <div>
@@ -82,7 +82,7 @@ import { TodoService } from '../todo.service';
     </section>
   `,
   styleUrls: ['./details.component.css'],
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class DetailsComponent {
@@ -128,20 +128,10 @@ export class DetailsComponent {
     });
   }
 
-  addComment() {
-    console.log('addCommnet');
-
-    if (this.commentForm.valid) {
-      const comment = this.commentForm.value.comment;
-      // Add the comment to CommentService
-      this.commentService.addComment(this.pageId(), comment);
-      this.commentForm.reset(); // Reset the form after successful submission
-      // Refresh the comments list
-      this.comments = this.commentService.getComments(this.pageId());
-    } else {
-      // Handle invalid form (optional)
-      console.log("Form is invalid!");
-    }
+  addComment(comment?: string) {
+    console.log('addCommnet', this.pageId(), { comment: this.commentForm.controls['comment'].value });
+    this.todoService.updateItem(this.pageId(), { comment: this.commentForm.controls['comment'].value });
+    console.log(this.todoService.items());
   }
 
   removeComment(comment: string) {

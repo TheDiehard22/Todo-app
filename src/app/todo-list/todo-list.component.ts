@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { MatListModule } from '@angular/material/list';
-import { RouterModule, Router } from '@angular/router';
-import { DataService } from '../data.service';
 import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { Router, RouterModule } from '@angular/router';
+
+import { DataService } from '../data.service';
 import { TodoItem } from '../todo-item';
+import { TodoService } from '../todo.service';
 
 
 @Component({
@@ -15,7 +17,7 @@ import { TodoItem } from '../todo-item';
       <h2 class="title-list">Task manager</h2>
       <div class="a-container">
         <ol>
-          @for (item of dataService.items2(); track item.id){
+          @for (item of todoService.items(); track item.id){
             <div class="list-item">
               <a [routerLink]="['/details', item.id]" matListItemTitle>
                 <li>
@@ -38,7 +40,10 @@ import { TodoItem } from '../todo-item';
 })
 export class TodoListComponent implements OnInit {
 
-  constructor(public dataService: DataService, private router: Router) { }
+  constructor(
+    public dataService: DataService,
+    public todoService: TodoService,
+    private router: Router) { }
 
   ngOnInit() { }
   deleteItem(item: TodoItem) {
