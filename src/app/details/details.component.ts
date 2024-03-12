@@ -120,13 +120,13 @@ export class DetailsComponent {
   }
 
   onKeyDown(event: KeyboardEvent) {
-    if (event.key === 'Enter' && !event.ctrlKey && !event.altKey && !event.shiftKey) {
-      event.preventDefault(); // Prevent default form submission
-      if (this.commentForm.valid) {
-        this.addComment();
-      }
+  if (event.key === 'Enter' && !event.ctrlKey && !event.altKey && !event.shiftKey) {
+    event.preventDefault(); // Prevent default form submission
+    if (this.commentForm.valid) {
+      this.addComment();
     }
   }
+}
   
   ngOnInit() {
     // Retrieve comments from CommentService on component initialization
