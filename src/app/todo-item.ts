@@ -9,3 +9,4 @@ export interface TodoItem {
 export type UpdateTodoItem = Omit<Partial<TodoItem>, 'comments'> & {
   comment?: string;
 }
+

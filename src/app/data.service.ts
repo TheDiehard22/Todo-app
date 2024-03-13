@@ -6,7 +6,7 @@ import { TodoItem } from './todo-item';
  * @deprecated
  */
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class DataService {
 
@@ -27,25 +27,25 @@ export class DataService {
     });
   }
 
-  updateItem(id: number, newItem: Partial<TodoItem>) {
-    const findNewItems = () => {
-      const items = this.items2();
-      const index = items.findIndex(item => item.id === id);  // Zoek het item met het opgegeven ID
-      if (index === -1) {  // Als het item niet gevonden is
-        return items;  // Retourneer de originele array
-      }
-      const newData = { ...items[index], ...newItem };  // Creëer een nieuw object met de nieuwe gegevens
-      const newItems = [...items];
-      // Maak een kopie van de originele array
-      newItems[index] = newData;  // Vervang het item met het nieuwe object
+    updateItem(id: number, newItem: Partial<TodoItem>) {
+        const findNewItems = () => {
+            const items = this.items2();
+            const index = items.findIndex(item => item.id === id);  // Zoek het item met het opgegeven ID
+            if (index === -1) {  // Als het item niet gevonden is
+                return items;  // Retourneer de originele array
+            }
+            const newData = { ...items[index], ...newItem };  // Creëer een nieuw object met de nieuwe gegevens
+            const newItems = [...items];
+            // Maak een kopie van de originele array
+            newItems[index] = newData;  // Vervang het item met het nieuwe object
 
-      return items;
+            return items;
+        }
+        this.items2.set(findNewItems());
     }
-    this.items2.set(findNewItems());
-  }
 
-  deleteItem(id: number) {  // Verwijdert een TodoItem uit de lijst op basis van ID
-    this.items2.update(items => items.filter(item => item.id !== id)); // Filter het item met het opgegeven ID
-  }
+    deleteItem(id: number) {  // Verwijdert een TodoItem uit de lijst op basis van ID
+        this.items2.update(items => items.filter(item => item.id !== id)); // Filter het item met het opgegeven ID
+    }
 
 }
