@@ -11,6 +11,7 @@ export class TodoService {
   currentTodo = computed(() => this.items().find(i => i.id === this.currentTodoID()));
   currentTodoID = signal(0);
   private counter = 1;
+  
   constructor() { }
 
   addItem(item: TodoItem) {

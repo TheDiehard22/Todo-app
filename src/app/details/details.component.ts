@@ -160,6 +160,10 @@ export class DetailsComponent {
     }
   }
 
+  updateItem(id: number, newItem: Partial<TodoItem>) {
+    this.todoService.updateItem(id, newItem); // Update gedeelde state
+  }
+
   goBack() {
     this.router.navigate(['/']); // Navigeer naar de homepage
   }
